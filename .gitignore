@@ -1,0 +1,29 @@
+/Library/
+*/[Bb]uild/
+*/[Bb]uilds/
+[Tt]emp/
+[Dd]ebug/
+[Oo]bj/
+[Ll]ogs/
+MemoryCaptures/
+sysinfo.txt
+
+# Asset Store tools
+/[Aa]sset[Ss]tore/
+
+# Visual Studio cache and build files
+.vs/
+*.csproj
+*.sln
+*.user
+*.unityproj
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.suo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
