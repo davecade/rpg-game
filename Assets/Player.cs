@@ -5,10 +5,10 @@ using UnityEngine;
 // Only Player has monobehaviour for state machine
 public class Player : MonoBehaviour
 {
-#region Components
+    #region Components
     public Animator anim {get; private set;}
 
-#endregion
+    #endregion
 
     #region States
     public PlayerStateMachine stateMachine { get; private set; }
