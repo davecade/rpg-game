@@ -16,6 +16,9 @@ public class PlayerState
     protected PlayerStateMachine stateMachine;
     protected Player player;
 
+    protected Rigidbody2D rb;
+
+    protected float xInput; // xInput is the horizontal input
     private string animBoolName;
 
     public PlayerState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName)
@@ -29,11 +32,12 @@ public class PlayerState
     {
         Debug.Log("Entered State: " + animBoolName);
         player.anim.SetBool(animBoolName, true);
+        rb = player.rb;
     }
 
     public virtual void Update()
     { 
-        //Debug.Log("Updated State: " + animBoolName);
+        xInput = Input.GetAxisRaw("Horizontal");
     }
 
     public virtual void Exit()

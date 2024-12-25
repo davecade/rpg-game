@@ -5,8 +5,12 @@ using UnityEngine;
 // Only Player has monobehaviour for state machine
 public class Player : MonoBehaviour
 {
+    [Header("Move info")]
+    public float moveSpeed = 12f;
+
     #region Components
     public Animator anim {get; private set;}
+    public Rigidbody2D rb {get; private set;}
 
     #endregion
 
@@ -39,6 +43,7 @@ public class Player : MonoBehaviour
     {
         // Get the animator component from the children of the Player GameObject
         anim = GetComponentInChildren<Animator>();
+        rb = GetComponent<Rigidbody2D>();
 
         // to Start the state machine, we need to call the Initialize method
         stateMachine.Initialize(idleState);
@@ -47,5 +52,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
         stateMachine.currentState.Update();
+    }
+
+    public void SetVelocity(float xVelocity, float yVelocity)
+    {
+        rb.linearVelocity = new Vector2(xVelocity, yVelocity);
     }
 }

@@ -23,9 +23,9 @@ public class PlayerIdleState : PlayerState
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.D))
+        // We get xInput from the PlayerState class. It is inherited from the PlayerState class
+        if (xInput != 0)
         {
-            Debug.Log("Start Moving");
             stateMachine.ChangeState(player.moveState);
         }
     }
