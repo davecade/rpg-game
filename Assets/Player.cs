@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [Header("Move info")]
     public float moveSpeed = 12f;
+    public float jumpForce;
 
     #region Components
     public Animator anim {get; private set;}
@@ -19,6 +20,8 @@ public class Player : MonoBehaviour
 
     public PlayerIdleState idleState { get; private set; }
     public PlayerMoveState moveState { get; private set; }
+    public PlayerJumpState jumpState {get; private set;}
+    public PlayerAirState airState {get; private set;}
 
     #endregion
     // Awake is a Unity lifecycle method that is called when the script instance is being loaded
@@ -37,6 +40,16 @@ public class Player : MonoBehaviour
         // Double quotes are used to pass the string value in C#
         // Single quotes are for characters
         moveState = new PlayerMoveState(this, stateMachine, "Move");
+
+        // PlayerJumpState is expecting these valies in its constructor
+        // Double quotes are used to pass the string value in C#
+        // Single quotes are for characters
+        jumpState = new PlayerJumpState(this, stateMachine, "Jump");
+
+        // PlayerAirState is expecting these valies in its constructor
+        // Double quotes are used to pass the string value in C#
+        // Single quotes are for characters
+        airState = new PlayerAirState(this, stateMachine, "Jump"); // Note that air state is the same as jump state because they share the same animation
     }
 
     private void Start()
